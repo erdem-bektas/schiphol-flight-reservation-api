@@ -1,0 +1,11 @@
+node_modules
+package-lock.json
+.env
+.env.development
+.env.local
+.env.production
+pnpm-lock.yaml
+dist
+.vscode
+.history
+.DS_Store
