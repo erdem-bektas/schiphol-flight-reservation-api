@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "4f90d53c-f713-4817-ba27-18dc606f0206",
+		"name": "Schiphol Flight API",
+		"description": "This Node.js based API is designed for processing flight reservation data for Schiphol Airport.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31541722"
+	},
+	"item": [
+		{
+			"name": "POST_REGISTER_USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Tests123123.",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3000/user/register",
+				"description": "Registers a new user"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_USERS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/user/all",
+				"description": "Retrieves all users (cached)"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_FLIGHTS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/flight/flights",
+				"description": "Retrieves all flights from API (cached)"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_FLIGHTS_DETAIL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/flight/138728889707351016",
+				"description": "Retrieves details of a specific flight"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_FLIGHT_FILTER_DATE_AND_DIRECTION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/flight/filter?date=2023-12-17&direction=BCN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"flight",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2023-12-17"
+						},
+						{
+							"key": "direction",
+							"value": "BCN"
+						}
+					]
+				},
+				"description": "Filters flights based on date and direction criteria"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_FLIGHT_HISTORY",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/flight/get-flight-history",
+				"description": "Gets user based Flight history"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_FLIGHT_FILTER_DATE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/flight/filter/date?date=2023-12-17",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"flight",
+						"filter",
+						"date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2023-12-17"
+						}
+					]
+				},
+				"description": "Filters flights by date"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_FLIGHT_FILTER_DIRECTION",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/flight/filter/direction?direction=BCN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"flight",
+						"filter",
+						"direction"
+					],
+					"query": [
+						{
+							"key": "direction",
+							"value": "BCN"
+						}
+					]
+				},
+				"description": "Filters flights by destination"
+			},
+			"response": []
+		},
+		{
+			"name": "POST_RESERVATION",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"flightNumber\": \"138728889707351016\",\n    \"seatNumber\": \"1\",\n    \"userId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:3000/flight/reservation",
+				"description": "Adds a new reservation"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ALL_RESERVATIONS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:3000/flight/reservation",
+				"description": "Retrieves all reservations (cached)"
+			},
+			"response": []
+		}
+	]
+}
